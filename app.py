@@ -8,7 +8,7 @@ app.secret_key = 'supersecretkey'
 BOARD_SIZE = 12
 EMPTY = 0
 RED = 1
-WHITE = 2
+BLUE = 2
 
 def create_board():
     """Creates an empty game board."""
@@ -97,7 +97,7 @@ def move(col):
         if is_draw(board):
             return render_template('game.html', board=session['board'], draw=True, player1=session['player1'], player2=session['player2'])
 
-        session['turn'] = WHITE if turn == RED else RED
+        session['turn'] = BLUE if turn == RED else RED
 
     return redirect(url_for('game'))
 

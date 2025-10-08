@@ -10,7 +10,7 @@
     <div class="container">
         <h1>Connect Four</h1>
         <div class="game-info">
-            <p>{{ player1 }} (Red) vs. {{ player2 }} (White)</p>
+            <p>{{ player1 }} (Red) vs. {{ player2 }} (Blue)</p>
             {% if winner %}
                 <h2>Winner: {{ winner }}!</h2>
             {% elif draw %}
@@ -24,7 +24,7 @@
                 {% for c in range(12) %}
                     <a href="{{ url_for('move', col=c) if not winner and not draw else '#' }}" class="cell
                         {% if board[r][c] == 1 %}red{% endif %}
-                        {% if board[r][c] == 2 %}white{% endif %}
+                        {% if board[r][c] == 2 %}blue{% endif %}
                     "></a>
                 {% endfor %}
             {% endfor %}

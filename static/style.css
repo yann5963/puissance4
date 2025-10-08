@@ -54,10 +54,10 @@ button:hover {
     grid-template-columns: repeat(12, 50px);
     grid-template-rows: repeat(12, 50px);
     gap: 5px;
-    background-color: #0077be;
+    background-color: #cccccc;
     padding: 10px;
     border-radius: 10px;
-    border: 5px solid #005a8d;
+    border: 5px solid #aaaaaa;
 }
 
 .cell {
@@ -72,9 +72,8 @@ button:hover {
     background-color: #ff4136;
 }
 
-.cell.white {
-    background-color: #f2f2f2;
-    border: 2px solid #ccc;
+.cell.blue {
+    background-color: #007bff;
 }
 
 .reset-button {
