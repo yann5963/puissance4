@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Four</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Connect Four</h1>
+        <div class="game-info">
+            <p>{{ player1 }} (Red) vs. {{ player2 }} (White)</p>
+            {% if winner %}
+                <h2>Winner: {{ winner }}!</h2>
+            {% elif draw %}
+                <h2>It's a draw!</h2>
+            {% else %}
+                <p>Turn: {% if turn == 1 %}{{ player1 }}{% else %}{{ player2 }}{% endif %}</p>
+            {% endif %}
+        </div>
+        <div class="board">
+            {% for r in range(11, -1, -1) %}
+                {% for c in range(12) %}
+                    <a href="{{ url_for('move', col=c) if not winner and not draw else '#' }}" class="cell
+                        {% if board[r][c] == 1 %}red{% endif %}
+                        {% if board[r][c] == 2 %}white{% endif %}
+                    "></a>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('reset') }}" class="reset-button">New Game</a>
+    </div>
+</body>
+</html>
